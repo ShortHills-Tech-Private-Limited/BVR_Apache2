@@ -39,5 +39,7 @@ This directory contains variables that are used by the role. These variables can
 ## 4. group_vars/all.yml: 
 This file contains variables that will be used across all hosts in the inventory.
 
+## 5.ansible.cfg:
+The ansible.cfg file is a configuration file for Ansible. It allows you to set default values for various settings such as the location of the inventory file, the default user for SSH connections, and many other settings
 
 
