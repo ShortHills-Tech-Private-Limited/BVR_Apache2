@@ -29,8 +29,8 @@ This is the file that contains the tasks that will be run when the apache2 role 
     Enable the mod_rewrite and mod_ssl modules using the apache2_module module.
     Enable the default Apache2 site using the apache2_site module.
 
-### (v). inventory/hosts.yml: T
-his file contains the inventory, which specifies the hosts and groups that Ansible can target. In this example, we have two hosts (web1 and web2) in the web_servers group.
+### (v). inventory/hosts.yml: 
+This file contains the inventory, which specifies the hosts and groups that Ansible can target. In this example, we have two hosts (web1 and web2) in the web_servers group.
 
 ### (vi). inventory/host_vars/web1.yml and inventory/host_vars/web2.yml:
 These files contain host-specific variables that will be used in our playbook. In this example, we have set the apache_server_name variable to a domain name for each host. 
