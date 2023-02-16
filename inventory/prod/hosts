@@ -1,6 +1,0 @@
-[web_servers]
-web1.example.com
-web2.example.com
-
-[db_servers]
-db1.example.com

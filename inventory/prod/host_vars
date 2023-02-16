@@ -1,4 +1,0 @@
-
-http_port: 80
-https_port: 443
-server_name: web1.example.com
