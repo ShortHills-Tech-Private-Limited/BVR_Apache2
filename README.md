@@ -1,45 +1,45 @@
-### This Ansible_Skeleton will be modified as per the requirements of our projects.
+### This is an example will be modified as per the requirements of our projects.
 
-## 1. Inventory:
+### (i). group_vars/all.yml: 
+This is a file that contains variables that will be used in our playbook. In this example, we have two variables:
 
-This directory should contain one or more inventory files, which specify the hosts and groups of hosts that Ansible will manage.
-Inventory files can be written in different formats such as INI and YAML
+    apache_listen_port: The port that Apache2 will listen on (in this case, port 80).
+    apache_server_admin: The email address of the server administrator (in this case, admin@example.com).
+    
+ ### (ii). playbook.yml: 
+ This is the main playbook that will be run. It contains the following information:
 
-Example:  
-![Screenshot from 2023-02-16 13-25-11](https://user-images.githubusercontent.com/115537106/219302581-0bf8a96a-04dc-4b2b-9f70-ed1cc27f51d9.png)![Screenshot from 2023-02-16 13-25-18](https://user-images.githubusercontent.com/115537106/219302601-30ebdc32-d0bf-451f-8740-d35aa3621e7b.png)
+    name: A description of what the playbook does (in this case, "Install and configure Apache").
+    hosts: The hosts that the playbook will target (in this case, the web_servers group).
+    become: A flag that tells Ansible to run commands as root using sudo.
+    roles: The roles that will be applied to the hosts (in this case, the apache2 role).
+
+### (iii). ansible.cfg: 
+This is a configuration file that tells Ansible which inventory file to use and which remote user to connect as. In this example, we have specified the following:
+
+    inventory: The location of the inventory file (./inventory/hosts.yml).
+    remote_user: The user to connect as (ubuntu).
+
+### (iv). roles/apache2/tasks/main.yml: 
+This is the file that contains the tasks that will be run when the apache2 role is applied. Here is what each task does:
+
+    Install the Apache2 package using the apt module.
+    Configure Apache2 to listen on the port specified in apache_listen_port, using the lineinfile module to modify the ports.conf file.
+    Configure the ServerAdmin directive in Apache2 using the lineinfile module to modify the servername.conf file.
+    Enable the mod_rewrite and mod_ssl modules using the apache2_module module.
+    Enable the default Apache2 site using the apache2_site module.
+
+### (v). inventory/hosts.yml: T
+his file contains the inventory, which specifies the hosts and groups that Ansible can target. In this example, we have two hosts (web1 and web2) in the web_servers group.
+
+### (vi). inventory/host_vars/web1.yml and inventory/host_vars/web2.yml:
+These files contain host-specific variables that will be used in our playbook. In this example, we have set the apache_server_name variable to a domain name for each host. 
 
 In the Inventory/prod there is two files hosts & host_vars.
+
 The hosts file within the prod directory would contain a list of hosts that belong to the prod environment.
 
 The host_vars directory within the prod directory would contain YAML files with variables that are specific to each host in the prod environment.
 
-
-## 2. playbook.yml: 
-
-This is the main playbook file that will be executed by Ansible. It will contain a series of tasks that will be executed on the hosts specified in the inventory.
-
-## 3. roles:
-This directory should contain one or more Ansible roles, which are collections of tasks, handlers, templates, and other files that can be reused across multiple playbooks.
-
-### (i). files:  
-This directory contains files that will be transferred to the remote host. These files are typically static files that are needed for the role to work, such as configuration files or scripts. 
-
-### (iii). handlers:
-This directory contains handlers that can be triggered by tasks within the role.
-
-### (iv). tasks:
-This directory contains the main tasks that the role performs. These tasks can be a combination of built-in Ansible modules and custom modules that you write yourself.
-
-### (v). templates:
-This directory contains templates that are used by the role to generate files that will be transferred to the remote host. These templates are typically Jinja2 templates that contain placeholders that will be filled in with variables at runtime. 
-
-### (vi). vars:
-This directory contains variables that are used by the role. These variables can be defined in YAML files or in Python files. 
-
-## 4. group_vars/all.yml: 
-This file contains variables that will be used across all hosts in the inventory.
-
-## 5.ansible.cfg:
-The ansible.cfg file is a configuration file for Ansible. It allows you to set default values for various settings such as the location of the inventory file, the default user for SSH connections, and many other settings
 
 
