@@ -6,8 +6,7 @@ This directory should contain one or more inventory files, which specify the hos
 Inventory files can be written in different formats such as INI and YAML
 
 Example:  
-![Screenshot from 2023-02-16 13-25-11](https://user-images.githubusercontent.com/115537106/219302581-0bf8a96a-04dc-4b2b-9f70-ed1cc27f51d9.png)
-![Screenshot from 2023-02-16 13-25-18](https://user-images.githubusercontent.com/115537106/219302601-30ebdc32-d0bf-451f-8740-d35aa3621e7b.png)
+![Screenshot from 2023-02-16 13-25-11](https://user-images.githubusercontent.com/115537106/219302581-0bf8a96a-04dc-4b2b-9f70-ed1cc27f51d9.png)![Screenshot from 2023-02-16 13-25-18](https://user-images.githubusercontent.com/115537106/219302601-30ebdc32-d0bf-451f-8740-d35aa3621e7b.png)
 
 In the Inventory/prod there is two files hosts & host_vars.
 The hosts file within the prod directory would contain a list of hosts that belong to the prod environment.
@@ -30,4 +29,15 @@ This directory contains handlers that can be triggered by tasks within the role.
 
 ### (iv). tasks:
 This directory contains the main tasks that the role performs. These tasks can be a combination of built-in Ansible modules and custom modules that you write yourself.
+
+### (v). templates:
+This directory contains templates that are used by the role to generate files that will be transferred to the remote host. These templates are typically Jinja2 templates that contain placeholders that will be filled in with variables at runtime. 
+
+### (vi). vars:
+This directory contains variables that are used by the role. These variables can be defined in YAML files or in Python files. 
+
+## 4. group_vars/all.yml: 
+This file contains variables that will be used across all hosts in the inventory.
+
+
 
