@@ -4,6 +4,12 @@
 Installation of Ansible
 server 
 
+![Screenshot 2023-02-20 at 22-39-51 BVR_Apache2_all yml at master · ShortHills-Tech-Private-Limited_BVR_Apache2](https://user-images.githubusercontent.com/115537106/220266997-2a771721-6e91-4a12-922b-6b5f770d6549.png)
+
+### run ansible playbook
+ansible-playbook example.yml
+
+
 (i). group_vars/all.yml: 
 This is a file that contains variables that will be used in our playbook. In this example, we have two variables:
 
