@@ -1,5 +1,35 @@
-- name: Install Apache2
-  hosts: web_servers
+---
+- name: Install web server software
+  hosts: webservers
   become: true
-  roles:
-    - apache2
+  vars:
+    app_repo: "https://github.com/your/repo.git"
+    app_dest: "/var/www/html"
+  tasks:
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: latest
+
+    - name: Install MySQL
+      apt:
+        name: mysql-server
+        state: latest
+
+    - name: Install Python
+      apt:
+        name: python3
+        state: latest
+
+    - name: Install Git
+      apt:
+        name: git
+        state: latest
+
+    - name: Clone repository
+      git:
+        repo: "{{ app_repo }}"
+        dest: "{{ app_dest }}"
+        version: "{{ item }}"
+      with_items:
+        - "{{ lookup('git', app_repo + 'refs/heads/', wantlist=True) }}"
