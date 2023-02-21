@@ -1,2 +1,3 @@
----
-apache_server_name: web2.example.com
+app_repo: "https://github.com/your/repo.git"
+app_dest: "/var/www/html"
+
