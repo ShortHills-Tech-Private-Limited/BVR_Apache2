@@ -1,0 +1,6 @@
+---
+- name: Install web server software
+  hosts: webservers
+  become: true
+  roles:
+    - examples
