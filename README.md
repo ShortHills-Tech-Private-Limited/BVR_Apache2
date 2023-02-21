@@ -1,6 +1,10 @@
 ### This is an example will be modified as per the requirements of our projects.
 
-### (i). group_vars/all.yml: 
+### Prerequisties
+Installation of Ansible
+server 
+
+(i). group_vars/all.yml: 
 This is a file that contains variables that will be used in our playbook. In this example, we have two variables:
 
     apache_listen_port: The port that Apache2 will listen on (in this case, port 80).
